@@ -5,6 +5,7 @@ import { TouchableOpacityProps } from "react-native";
 interface ITransactionTypeButtonProps extends TouchableOpacityProps {
   title: string;
   type: "up" | "down";
+  isActive: boolean;
 }
 
 const icons = {
@@ -15,11 +16,12 @@ const icons = {
 export function TransactionTypeButton({
   title,
   type,
+  isActive,
   ...rest
 }: ITransactionTypeButtonProps) {
   return (
-    <Container {...rest}>
-      <Icon name={icons[type]} type={type}/>
+    <Container {...rest} isActive={isActive} type={type}>
+      <Icon name={icons[type]} type={type} />
       <Title>{title}</Title>
     </Container>
   );
