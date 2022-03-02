@@ -32,7 +32,7 @@ export function TransactionCard({data}: ITransactionCardProps) {
     <Container>
       <Title>{data.title}</Title>
       <Amount type={data.type}>
-        {data.type === "negative" && "-" }
+        {data.type === "negative" && "- " }
         {data.amount}
         </Amount>
       <Footer>
