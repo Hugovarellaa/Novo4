@@ -1,18 +1,43 @@
-import React from 'react';
-import { Container,Header, Title,Icon, Footer, Amount , LastTransaction} from "./style";
+import React from "react";
+import {
+  Container,
+  Header,
+  Title,
+  Icon,
+  Footer,
+  Amount,
+  LastTransaction,
+} from "./style";
 
-export function HightlightCard(){
-  return(
-    <Container>
-        <Header>
-          <Title>Entrada</Title>
-          <Icon name="arrow-up-circle"/>
+interface IHightlightCardProps {
+  title: string;
+  amount: string;
+  lastTransaction: string;
+  type: "up" | "down" | "total";
+}
 
-        </Header>
-        <Footer>
-          <Amount>R$ 17.400,00</Amount>
-          <LastTransaction>Última entrada dia 13 de abril</LastTransaction>
-        </Footer>
+const icon = {
+  up: "arrow-up-circle",
+  down: "arrow-down-circle",
+  total: "dollar-sign",
+};
+
+export function HightlightCard({
+  title,
+  amount,
+  lastTransaction,
+  type,
+}: IHightlightCardProps) {
+  return (
+    <Container type={type}>
+      <Header>
+        <Title type={type}>{title}</Title>
+        <Icon name={icon[type]} type={type} />
+      </Header>
+      <Footer>
+        <Amount type={type}>{amount}</Amount>
+        <LastTransaction type={type}>{lastTransaction}</LastTransaction>
+      </Footer>
     </Container>
-  )
+  );
 }
