@@ -1,4 +1,5 @@
 import React from "react";
+import { getBottomSpace } from "react-native-iphone-x-helper";
 import { HightlightCard } from "../components/HightlightCard";
 import { TransactionCard } from "../components/TransactionCard";
 
@@ -15,9 +16,48 @@ import {
   HightlightCards,
   Transactions,
   Title,
+  TransactionList,
 } from "./styles";
 
 export function Dashboard() {
+  const data = [
+    {
+      title: "Desenvolvimento de site",
+      amount: "R$ 12.000,00",
+      category: {
+        name: "Vendas",
+        icon: "dollar-sign",
+      },
+      date: "13/04/2020",
+    },
+    {
+      title: "Aluguel",
+      amount: "- R$ 2.000,00",
+      category: {
+        name: "Casa",
+        icon: "dollar-sign",
+      },
+      date: "13/04/2020",
+    },
+    {
+      title: "Desenvolvimento de site",
+      amount: "R$ 12.000,00",
+      category: {
+        name: "Vendas",
+        icon: "dollar-sign",
+      },
+      date: "13/04/2020",
+    },
+    {
+      title: "Desenvolvimento de site",
+      amount: "R$ 12.000,00",
+      category: {
+        name: "Vendas",
+        icon: "dollar-sign",
+      },
+      date: "13/04/2020",
+    },
+  ];
   return (
     <Container>
       <Header>
@@ -34,20 +74,38 @@ export function Dashboard() {
       </Header>
 
       <HightlightCards>
-        <HightlightCard type="up" title="Entradas" amount="R$ 17.400,00" lastTransaction="Última entrada dia 13 de abril"/>
-        <HightlightCard type="down" title="Saídas" amount="R$ 1.259,00" lastTransaction="Última saída dia 03 de abril"/>
-        <HightlightCard type="total" title="Total" amount="R$ 16.141,00" lastTransaction="01 à 16 de abril"/>
+        <HightlightCard
+          type="up"
+          title="Entradas"
+          amount="R$ 17.400,00"
+          lastTransaction="Última entrada dia 13 de abril"
+        />
+        <HightlightCard
+          type="down"
+          title="Saídas"
+          amount="R$ 1.259,00"
+          lastTransaction="Última saída dia 03 de abril"
+        />
+        <HightlightCard
+          type="total"
+          title="Total"
+          amount="R$ 16.141,00"
+          lastTransaction="01 à 16 de abril"
+        />
       </HightlightCards>
 
       <Transactions>
         <Title>Listagem</Title>
 
-        <TransactionCard title="Desenvolvimento de site" amount="R$ 12.000,00" category={{
-          name: "Vendas",
-          icon: "dollar-sign"
-        }} date="13/04/2020" />
+        <TransactionList
+          data={data}
+          renderItem={({ item }) => <TransactionCard data={item} />}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingBottom: getBottomSpace() 
+          }}
+        />
       </Transactions>
-
     </Container>
-  ); 
+  );
 }

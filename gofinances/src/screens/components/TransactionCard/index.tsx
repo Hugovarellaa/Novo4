@@ -15,29 +15,28 @@ type Category = {
   icon: string;
 };
 
-interface ITransactionCardProps {
+type Data = {
   title: string;
   amount: string;
   category: Category;
   date: string;
 }
 
-export function TransactionCard({
-  title,
-  amount,
-  category,
-  date,
-}: ITransactionCardProps) {
+interface ITransactionCardProps {
+  data: Data
+}
+
+export function TransactionCard({data}: ITransactionCardProps) {
   return (
     <Container>
-      <Title>{title}</Title>
-      <Amount>{amount}</Amount>
+      <Title>{data.title}</Title>
+      <Amount>{data.amount}</Amount>
       <Footer>
         <Category>
           <Icon name="dollar-sign" />
-          <CategoryNAme>{category.name}</CategoryNAme>
+          <CategoryNAme>{data.category.name}</CategoryNAme>
         </Category>
-        <Date>{date}</Date>
+        <Date>{data.date}</Date>
       </Footer>
     </Container>
   );
