@@ -29,14 +29,13 @@ export function Dashboard() {
           <Icon name="power" />
         </UserWrapper>
       </Header>
-      <HightlightCards
-        
-        
-      >
+
+      <HightlightCards>
         <HightlightCard />
         <HightlightCard />
         <HightlightCard />
       </HightlightCards>
+      
     </Container>
   );
 }
