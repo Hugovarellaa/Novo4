@@ -42,7 +42,10 @@ export function Dashboard() {
       <Transactions>
         <Title>Listagem</Title>
 
-        <TransactionCard />
+        <TransactionCard title="Desenvolvimento de site" amount="R$ 12.000,00" category={{
+          name: "Vendas",
+          icon: "dollar-sign"
+        }} date="13/04/2020" />
       </Transactions>
 
     </Container>

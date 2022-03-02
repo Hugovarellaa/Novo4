@@ -1,5 +1,5 @@
-import React from 'react';
-import { 
+import React from "react";
+import {
   Container,
   Title,
   Amount,
@@ -7,24 +7,38 @@ import {
   Category,
   Icon,
   CategoryNAme,
-  Date
+  Date,
+} from "./styles";
 
-} from './styles';
+type Category = {
+  name: string;
+  icon: string;
+};
 
-export function TransactionCard(){
+interface ITransactionCardProps {
+  title: string;
+  amount: string;
+  category: Category;
+  date: string;
+}
+
+export function TransactionCard({
+  title,
+  amount,
+  category,
+  date,
+}: ITransactionCardProps) {
   return (
     <Container>
-
-    <Title>Desenvolvimento de site</Title>
-    <Amount>R$ 12.000,00</Amount>
-    <Footer>
-      <Category>
-        <Icon name="dollar-sign"/>
-        <CategoryNAme>Vendas</CategoryNAme>
-      </Category>
-      <Date>13/04/2020</Date>
-    </Footer>
-
+      <Title>{title}</Title>
+      <Amount>{amount}</Amount>
+      <Footer>
+        <Category>
+          <Icon name="dollar-sign" />
+          <CategoryNAme>{category.name}</CategoryNAme>
+        </Category>
+        <Date>{date}</Date>
+      </Footer>
     </Container>
-  )
+  );
 }
