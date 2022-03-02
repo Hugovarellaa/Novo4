@@ -2,6 +2,10 @@ import styled from "styled-components/native";
 import { Feather } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
 
+interface ITrasactionProps {
+  type: "positive" | "negative"
+}
+
 export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.shape};
   border-radius: 5px;
@@ -13,10 +17,16 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(14)}px;
 `;
-export const Amount = styled.Text`
+export const Amount = styled.Text<ITrasactionProps>`
   font-family: ${({ theme }) => theme.fonts.regular};
+  color: ${({ theme, type }) =>
+    type === "positive"
+      ? theme.colors.success
+      : theme.colors.attention
+  };
   font-size: ${RFValue(20)}px;
   margin-top: 2px;
+
 `;
 export const Footer = styled.View`
   flex-direction: row;
