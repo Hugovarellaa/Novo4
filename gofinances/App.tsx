@@ -1,6 +1,6 @@
 import React from 'react';
 import {ThemeProvider} from "styled-components"
-import theme from './src/screens/global/styles/theme';
+import theme from './src/global/styles/theme';
 import AppLoading from "expo-app-loading"
 import {
   useFonts,
