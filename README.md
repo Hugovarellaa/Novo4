@@ -1,3 +1,6 @@
+<p align="center">Em andamento</p>
+
+
 # GoFinances 💜 |  feito com React Native 
 
 &nbsp;
