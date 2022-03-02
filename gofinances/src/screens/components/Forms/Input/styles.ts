@@ -15,8 +15,3 @@ export const Container = styled(TextInput)`
 
 
 `
-
-export const Forms = styled.View`
-
-
-`
